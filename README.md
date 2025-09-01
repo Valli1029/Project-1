@@ -66,6 +66,5 @@ Its application helps in **disaster planning** by estimating the **structural vu
 
 ---
 
-## 📜 License  
-This project is licensed under the **MIT License**.  
+**© 2025 Arangi Srivalleswari**  
 
