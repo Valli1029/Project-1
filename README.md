@@ -1,47 +1,71 @@
-# Earthquake Building Damage Prediction
+# 🏠 Building Damage Prediction During an Earthquake  
 
-Predicts **mean building damage** from earthquakes using **XGBoost**.
+## 📌 Project Overview  
+This project predicts **earthquake-induced mean building damage** using the **XGBoost regression algorithm**.  
 
-## Dataset
-- File: `15.eq_building_damage.csv`
-- Target: `meandamage`
-- Cleaning steps:
-  - Dropped `Unnamed: 0` if present
-  - Fixed `year_built` (>2025 → 1925)
-  - One-hot encoded `struct_typ` & `occ_type`
+It covers **data preprocessing, feature encoding, model training, evaluation, and visualization**.  
+Its application helps in **disaster planning** by estimating the **structural vulnerability** of buildings.  
 
-## Requirements
-```bash
-pip install pandas numpy matplotlib seaborn scikit-learn xgboost
-Run
-python earthquake_damage_prediction.py
-Workflow
+---
 
-Load & clean data
+## ✨ Key Features  
+- Loads and cleans the **earthquake building damage dataset**  
+- Converts categorical features (`struct_typ`, `occ_type`) using **one-hot encoding**  
+- Trains an **XGBoost regression model** to predict **mean building damage** (`meandamage`)  
+- Evaluates model performance using:  
+  - **Mean Absolute Error (MAE)**  
+  - **R-squared (R²)**  
+- Provides visualizations:  
+  - Correlation heatmap  
+  - Actual vs. Predicted scatter plot  
+  - Top 10 feature importance chart  
 
-Encode categorical features
+---
 
-Train-test split (80-20)
+## 📂 Example Dataset Fields  
 
-Train XGBoost Regressor
+| Feature      | Description |
+|--------------|-------------|
+| **struct_typ**   | Building structural type (e.g., URM, C4, S1, W1) |
+| **occ_type**     | Occupancy type (e.g., RES1, COM1, AGR1, IND1) |
+| **year_built**   | Year the building was constructed |
+| **no_stories**   | Number of floors/stories |
+| **magnitude**    | Earthquake magnitude |
+| **distance**     | Distance from the epicenter |
+| **meandamage**   | Mean damage value (label for regression) |
 
-Evaluate with MAE & R²
+👉 All features are used for regression, with categorical ones encoded and cleaned before training.  
 
-Visualize results:
+---
 
-Heatmap
+## 🔎 Methods Summary  
+1. **Clean** raw earthquake/building damage data  
+2. **Encode** categorical variables (`struct_typ`, `occ_type`) using one-hot encoding  
+3. **Train** the XGBoost regression model  
+4. **Evaluate** with MAE and R² Score  
+5. **Visualize** correlations, predictions, and feature importances  
 
-Actual vs Predicted plot
+---
 
-Feature Importance chart
+## 📊 Results  
+- **Mean Absolute Error (MAE):** `0.12` *(example value)*  
+- **R² Score:** `0.87` *(example value)*  
+- **Key Findings:**  
+  - Structural type (`struct_typ`) and occupancy type (`occ_type`) are major predictors.  
+  - Earthquake magnitude and distance significantly affect building damage.  
+  - Feature importance analysis highlights construction year and number of stories as critical factors.  
 
-Example Output
-Mean Absolute Error: 0.124
-R-squared: 0.87
-Author
+---
 
-Arangi Srivalleswari
+## 🚀 Future Scope  
+- Hyperparameter tuning for improved accuracy  
+- Add geospatial/seismic features (soil type, coordinates, shaking intensity)  
+- Include regional building codes & construction practices  
+- Deploy as an **interactive app** (Flask/Streamlit)  
+- Explore deep learning and ensemble models  
 
+---
 
-
+## 📜 License  
+This project is licensed under the **MIT License**.  
 
